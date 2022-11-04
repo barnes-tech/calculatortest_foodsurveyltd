@@ -1,10 +1,13 @@
 <?php
+$first = "";
+$second = "";
+$operand = "";
+$result = "";
 if($_POST) {
   $first = (isset($_POST['first']))? $_POST['first'] : '';
   $second = (isset($_POST['second']))? $_POST['second'] : '';
   $operator = (isset($_POST['operation']))? $_POST['operation']: '';
-  $operand = "";
-  $result = "";
+
   switch($operator) {
     case 1:
         $operand = "+";
@@ -39,5 +42,7 @@ if($_POST) {
   <input type="number" name="second" id="second" min="0" step="1"></input>
   <label for="cars">Choose an operator:</label>
   <input type="submit" value="calculate">
+  <?php if($_POST) {?>
   <h1><?=$first;?> <?=$operand;?> <?=$second;?> = <?=$result;?></h1>
+<?php }?>
 </form>
